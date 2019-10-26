@@ -1,31 +1,33 @@
 <template>
-  <div class="container">
-    <div
-      v-touch:swipe.left="() => log('左')"
-      v-touch:swipe.right="() => log('右')"
-    >
-      <h1>ひたすらUIコンポーネント作るお</h1>
-      <ol>
-        <li>tweenmax入れる：Done</li>
-        <li>とりあえず適当に触ってみる：Done</li>
-        <li>スワイプ実装完了</li>
-        <li>1つコンポーネント作る</li>
-        <li>一旦振り返って方向性を確認する</li>
-      </ol>
-      <p id="obj">あああ</p>
-      <app-button text="ボタン" />
-      <button type="button" name="button" @click="animation()">動く</button>
-    </div>
+  <div>
+    <the-main-area>
+      <div>
+        <h1>ひたすらUIコンポーネント作るお</h1>
+        <ol>
+          <li>tweenmax入れる：Done</li>
+          <li>とりあえず適当に触ってみる：Done</li>
+          <li>スワイプ実装完了</li>
+          <li>1つコンポーネント作る</li>
+          <li>一旦振り返って方向性を確認する</li>
+        </ol>
+        <p id="obj">あああ</p>
+        <app-button text="ボタン" />
+        <!-- <app-modal-bottom /> -->
+      </div>
+    </the-main-area>
   </div>
 </template>
 <script>
+import AppModalBottom from '~/components/Molecules/AppModalBottom.vue';
+import TheMainArea from '~/components/Organisms/layouts/TheMainArea.vue';
 export default {
+  components: {
+    AppModalBottom,
+    TheMainArea,
+  },
   methods: {
     animation() {
       TweenMax.to('#obj', 0.5, { scale: 10, repeat: 3 });
-    },
-    log(direction) {
-      console.log(direction + 'にスワイプ');
     },
   }
 }

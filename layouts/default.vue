@@ -1,20 +1,35 @@
 <template>
   <div>
+    <the-header userName="mrble" />
+    <the-cover fileName="cover" />
     <nuxt />
   </div>
 </template>
-
-<style>
+<script>
+import TheHeader from '~/components/Organisms/layouts/TheHeader';
+import TheCover from '~/components/Organisms/layouts/TheCover';
+export default {
+  components: {
+    TheHeader,
+    TheCover,
+  },
+}
+</script>
+<style lang='scss'>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  background: #969696;
+}
+
+body {
+  color: #fff;
+  max-width: 600px;
+  margin: 0 auto;
+  background: $base_color;
 }
 
 *,

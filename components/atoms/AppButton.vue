@@ -5,12 +5,7 @@
     @click="clickBtton"
     class="c-button"
   >
-    <div
-      ref="wave"
-      class="wave"
-      :class="{ 'is-animation': isAnimation }"
-    >
-    </div>
+    <div ref="wave" class="wave" :class="{ 'is-animation': isAnimation }"></div>
     {{ text }}
   </button>
 </template>
