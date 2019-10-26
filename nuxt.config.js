@@ -28,6 +28,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/globalComponents' },
+    { src: '~/plugins/mixin' },
     { src: '~/plugins/TweenMax' },
     { src: '~/plugins/vue2-touch-events', ssr: false },
   ],

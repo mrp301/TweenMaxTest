@@ -13,6 +13,7 @@
         <li>一旦振り返って方向性を確認する</li>
       </ol>
       <p id="obj">あああ</p>
+      <app-button text="ボタン" />
       <button type="button" name="button" @click="animation()">動く</button>
     </div>
   </div>
