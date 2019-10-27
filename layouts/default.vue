@@ -2,16 +2,26 @@
   <div>
     <the-header userName="mrble" />
     <the-cover fileName="cover" />
+    <the-profile
+      img="momoyama"
+      name="桃山みらい"
+      id="@momoyama_mirai710"
+      description="キラッとやってみた！キラッとやってみた！キラッとやってみた！キラッとやってみた！キラッとやってみた！"
+      follows="100"
+      followers="1,000"
+    />
     <nuxt />
   </div>
 </template>
 <script>
 import TheHeader from '~/components/Organisms/layouts/TheHeader';
 import TheCover from '~/components/Organisms/layouts/TheCover';
+import TheProfile from '~/components/Organisms/TheProfile';
 export default {
   components: {
     TheHeader,
     TheCover,
+    TheProfile,
   },
 }
 </script>

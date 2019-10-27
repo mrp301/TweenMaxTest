@@ -1,21 +1,7 @@
 <template>
-  <div>
-    <the-main-area>
-      <div>
-        <h1>ひたすらUIコンポーネント作るお</h1>
-        <ol>
-          <li>tweenmax入れる：Done</li>
-          <li>とりあえず適当に触ってみる：Done</li>
-          <li>スワイプ実装完了</li>
-          <li>1つコンポーネント作る</li>
-          <li>一旦振り返って方向性を確認する</li>
-        </ol>
-        <p id="obj">あああ</p>
-        <app-button text="ボタン" />
-        <!-- <app-modal-bottom /> -->
-      </div>
-    </the-main-area>
-  </div>
+  <the-main-area :nav="nav">
+    <nuxt-child/>
+  </the-main-area>
 </template>
 <script>
 import AppModalBottom from '~/components/Molecules/AppModalBottom.vue';
@@ -25,27 +11,54 @@ export default {
     AppModalBottom,
     TheMainArea,
   },
+  asyncData({ route }) {
+    const currentPath = route.path.replace('/', '');
+    let index = 0;
+    switch (currentPath) {
+      case 'tweet':
+        break;
+      case 'reply':
+        index = 1;
+        break;
+      case 'media':
+        index = 2;
+        break;
+      case 'good':
+        index = 3;
+        break;
+      default:
+        break;
+    }
+    return {
+      nav: {
+        index: index,
+        position: ['tweet', 'reply', 'media', 'good'],
+      }
+    };
+  },
   methods: {
     animation() {
       TweenMax.to('#obj', 0.5, { scale: 10, repeat: 3 });
     },
-  }
+  },
 }
 </script>
 
-<style>
+<style lang='scss'>
 li {
   text-align: left;
   padding-left: 5px;
 }
 
 .container {
+  padding: 10px;
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+
+  &.isHeaderFixed {
+    padding-top: 51px;
+  }
 }
 
 .title {

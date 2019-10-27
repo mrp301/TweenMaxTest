@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav-container">
+  <nav class="nav-container" :class="{ 'is-fixed': isFixed }">
     <ul class="nav">
       <the-nav-item @fetchIndex="fetchIndex" v-model="width[0]" text="ツイート" :current="value" :index="0" id="tweet" />
       <the-nav-item @fetchIndex="fetchIndex" v-model="width[1]" text="ツイートと返信" :current="value" :index="1" id="reply" />
@@ -33,6 +33,15 @@ export default {
     }
   },
   computed: {
+    isFixed() {
+      if (this.scrollY > 436) {
+        this.$store.commit('headerNav/setFixed');
+        return true;
+      } else {
+        this.$store.commit('headerNav/setStatic');
+        return false;
+      }
+    },
     left() {
       switch (this.value) {
         case 0:
@@ -61,8 +70,9 @@ export default {
 <style lang='scss' scoped>
 .nav-container {
   position: relative;
-  width: 100%;
   border-bottom: solid 1px $border_color;
+  width: 100%;
+  background: $base_color;
 }
 
 .nav-bar {
@@ -88,7 +98,7 @@ export default {
     padding: 10px;
     font-size: 14px;
     font-weight: bold;
-    color: #8899a6;
+    color: $gray_color;
 
     &.is-active {
       color: #1ca1f2;
@@ -96,19 +106,9 @@ export default {
   }
 }
 
-.wave {
-  position: absolute;
-  top: -32px; /* (button height - height) / 2 */
-  left: calc(50% - 50px);
-  width: 100px;
-  height: 100px;
-  background-color: rgba(255, 255, 255, .2);
-  border-radius: 100%;
-  transition: all 0.2s ease-in;
-  opacity: 0;
-
-  &.is-animation {
-    animation: scaleout .3s 1 ease-out;
-  }
+.is-fixed {
+  position: fixed;
+  max-width: 600px;
+  top: 0;
 }
 </style>

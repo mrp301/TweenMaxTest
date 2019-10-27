@@ -1,11 +1,13 @@
 <template>
   <div>
     <the-nav v-model="nav.index" />
-    <main class="container"
+    <main class="container" :class="{ 'isHeaderFixed': isHeaderFixed }"
       v-touch:swipe.left="() => swipe('left')"
       v-touch:swipe.right="() => swipe('right')"
     >
-     <slot/>
+    <div class="slotContainer">
+      <slot />
+    </div>
     </main>
   </div>
 </template>
@@ -15,12 +17,15 @@ export default {
   components: {
     TheNav,
   },
-  data() {
-    return {
-      nav: {
-        index: 0,
-        position: ['tweet', 'reply', 'media', 'good'],
-      }
+  props: {
+    nav: {
+      type: Object,
+      default: {},
+    },
+  },
+  watch: {
+    'nav.index': function(index) {
+      this.pageChange(this.nav.position[index]);
     }
   },
   methods: {
@@ -35,6 +40,34 @@ export default {
         }
       }
     },
+    pageChange(slug) {
+      if (slug === 'tweet') {
+        this.$router.push({ name: `index` });
+      } else {
+        this.$router.push({ name: `index-${slug}` });
+      }
+    }
   },
+  computed: {
+    isHeaderFixed() {
+      return this.$store.state.headerNav.isFixed;
+    }
+  }
 }
 </script>
+<style lang='scss'>
+.slotContainer {
+  position: relative;
+   width: 100%;
+}
+
+@keyframes scaleout {
+  0% {
+    opacity: 1;
+    transform: scale(0.0);
+  } 100% {
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+</style>
