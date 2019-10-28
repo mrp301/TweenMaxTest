@@ -1,14 +1,13 @@
 <template>
   <div>
-    <the-header userName="mrble" />
     <the-cover fileName="cover" />
     <the-profile
       img="momoyama"
       name="桃山みらい"
       id="@momoyama_mirai710"
       description="キラッとやってみた！キラッとやってみた！キラッとやってみた！キラッとやってみた！キラッとやってみた！"
-      follows="100"
-      followers="1,000"
+      follows="384"
+      followers="2,215"
     />
     <nuxt />
   </div>

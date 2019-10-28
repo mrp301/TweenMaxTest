@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav-container" :class="{ 'is-fixed': isFixed }">
+  <nav class="nav-container">
     <ul class="nav">
       <the-nav-item @fetchIndex="fetchIndex" v-model="width[0]" text="ツイート" :current="value" :index="0" id="tweet" />
       <the-nav-item @fetchIndex="fetchIndex" v-model="width[1]" text="ツイートと返信" :current="value" :index="1" id="reply" />
@@ -33,15 +33,6 @@ export default {
     }
   },
   computed: {
-    isFixed() {
-      if (this.scrollY > 436) {
-        this.$store.commit('headerNav/setFixed');
-        return true;
-      } else {
-        this.$store.commit('headerNav/setStatic');
-        return false;
-      }
-    },
     left() {
       switch (this.value) {
         case 0:
@@ -69,7 +60,9 @@ export default {
 </script>
 <style lang='scss' scoped>
 .nav-container {
-  position: relative;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
   border-bottom: solid 1px $border_color;
   width: 100%;
   background: $base_color;
@@ -104,11 +97,5 @@ export default {
       color: #1ca1f2;
     }
   }
-}
-
-.is-fixed {
-  position: fixed;
-  max-width: 600px;
-  top: 0;
 }
 </style>

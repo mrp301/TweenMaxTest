@@ -1,6 +1,6 @@
 <template>
   <div class="cover">
-    <img class="cover__img" :style="{ 'filter': 'blur('+scrollY/30+'px)' }" :src="`/cover/${fileName}.jpg`">
+    <img class="cover__img" :style="{ 'filter': 'blur('+scrollY/30+'px)' }" :src="`/tweet/${fileName}.jpg`">
   </div>
 </template>
 <script>
@@ -22,7 +22,7 @@ export default {
 .cover {
   overflow: hidden;
   width: 100%;
-  height: 200px;
+  height: 140px;
   background: #000;
 
   &__img {

@@ -15,7 +15,6 @@ Vue.mixin({
     },
     handleScroll() {
       this.scrollY = window.scrollY;
-      console.log(this.scrollY);
     }
   }
 })
