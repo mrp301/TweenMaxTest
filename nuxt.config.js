@@ -61,10 +61,6 @@ export default {
     extend (config, ctx) {
     }
   },
-  server: {
-    port: 3333,
-    host: '0.0.0.0'
-  },
 
   axios: {
     proxy: true,
