@@ -43,6 +43,8 @@ export default {
   */
   modules: [
     '@nuxtjs/style-resources',
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
   styleResources: {
     scss: [
@@ -58,5 +60,26 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+  server: {
+    port: 3333,
+    host: '0.0.0.0'
+  },
+
+  axios: {
+    proxy: true,
+  },
+
+  proxy: {
+    '/api':
+      process.env.NODE_ENV !== 'production' 
+        ? {
+          target: 'http://localhost:3000',
+          pathRewrite: { '^/api' : '/api/v1' }
+        }
+        : {
+          target: 'http://twitter-trace-api.herokuapp.com',
+          pathRewrite: { '^/api' : '/api/v1' }
+        }
+  },
 }

@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ data.data }}
     <h2>残タスク</h2>
     <ul>
       <li>ツイートとかのコンポーネント作る</li>
@@ -7,6 +8,7 @@
       <li>よこすワイプのメニュー作る</li>
       <li>メニュー系なんか作る</li>
     </ul>
+    <button @click="getData">取得</button>
   </div>
 </template>
 <script>
@@ -14,6 +16,16 @@ export default {
   transition: {
     name: 'fade',
     mode: 'out-in',
+  },
+  data() {
+    return {
+      data: {},
+    }
+  },
+  methods: {
+    async getData() {
+      this.data = await this.$axios.$get('/api/posts');
+    },
   },
 }
 </script>
