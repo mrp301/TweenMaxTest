@@ -1,26 +1,16 @@
 <template>
   <div>
     <the-cover fileName="cover" />
-    <the-profile
-      img="momoyama"
-      name="桃山みらい"
-      id="@momoyama_mirai710"
-      description="キラッとやってみた！キラッとやってみた！キラッとやってみた！キラッとやってみた！キラッとやってみた！"
-      follows="384"
-      followers="2,215"
-    />
     <nuxt />
   </div>
 </template>
 <script>
 import TheHeader from '~/components/Organisms/layouts/TheHeader';
 import TheCover from '~/components/Organisms/layouts/TheCover';
-import TheProfile from '~/components/Organisms/TheProfile';
 export default {
   components: {
     TheHeader,
     TheCover,
-    TheProfile,
   },
 }
 </script>
@@ -36,7 +26,6 @@ html {
 
 body {
   color: #fff;
-  max-width: 600px;
   margin: 0 auto;
   background: $base_color;
 }

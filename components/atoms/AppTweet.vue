@@ -1,18 +1,18 @@
 <template>
-  <div :id="data.id" class="tweet">
+  <div :id="tweet.id" class="tweet">
     <div class="tweet__container">
       <div class="tweet__iconContainer">
-        <div v-if="data.icon" class="tweet__icon"><img :src="`/cover/${data.icon}.jpg`"></div>
+        <div v-if="false" class="tweet__icon"><img :src="`/cover/`"></div>
         <div v-else class="tweet__icon--default"></div>
       </div>
       <div class="tweet__body">
         <div class="tweet__user">
-          <span class="tweet__user--name">{{ data.name }}</span><span class="tweet__user--userid">{{ data.userid }}</span>
+          <span class="tweet__user--name">{{ tweet.user.user_name }}</span><span class="tweet__user--userid">@{{ tweet.user.userId }} {{ $dayjs(tweet.created_at).format('YYYY年MM月DD日') }}</span>
         </div>
-        <div class="tweet__text">{{ data.tweet }}</div>
-        <div class="tweet__mediaContainer">
+        <div class="tweet__text">{{ tweet.content }}</div>
+        <!-- <div class="tweet__mediaContainer">
           <div v-if="data.media" :ref="data.id" class="tweet__media"><img :src="`/tweet/${data.media}.jpg`"></div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -20,18 +20,9 @@
 <script>
 export default {
   props: {
-    data: {
+    tweet: {
       type: Object,
-      default: () => {
-        return {
-          id: '',
-          name: '',
-          userid: '',
-          icon: '',
-          tweet: '',
-          media: '',
-        }
-      },
+      default: () => {},
     },
   },
   methods: {

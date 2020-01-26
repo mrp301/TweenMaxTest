@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li v-for="tweet in tweets" :key="tweet.id">
-        <app-tweet :data="tweet" />
+        <app-tweet :tweet="tweet" />
       </li>
     </ul>
   </div>
@@ -20,9 +20,7 @@ export default {
   props: {
     tweets: {
       type: Array,
-      default: () => {
-        return []
-      },
+      default: () => [],
     },
   },
 }

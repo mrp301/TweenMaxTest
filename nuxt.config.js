@@ -32,6 +32,7 @@ export default {
     { src: '~/plugins/mixin' },
     { src: '~/plugins/TweenMax' },
     { src: '~/plugins/vue2-touch-events', ssr: false },
+    { src: '~/plugins/day.js' },
   ],
   /*
   ** Nuxt.js dev-modules

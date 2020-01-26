@@ -1,24 +1,29 @@
 <template>
   <div>
+    <the-profile :user="user" />
     <the-main-area :nav="nav">
       <nuxt-child keep-alive :tweets="tweets" />
     </the-main-area>
     <button @click="PostTweet = true" class="postbutton">＋</button>
-    <post-tweet :isActive="PostTweet" @postclose="postclose" @addTweet="addTweet" />
+    <post-tweet :isActive="PostTweet" @postclose="postclose" @post-tweet="postTweet" />
   </div>
 </template>
 <script>
 import AppModalBottom from '~/components/Molecules/AppModalBottom.vue';
 import TheMainArea from '~/components/Organisms/layouts/TheMainArea.vue';
 import PostTweet from '~/components/Organisms/PostTweet.vue';
-import tweets from '~/static/tweet/tweets.js';
+import TheProfile from '~/components/Organisms/TheProfile';
 export default {
   components: {
     AppModalBottom,
     TheMainArea,
+    TheProfile,
     PostTweet,
   },
-  asyncData({ route }) {
+  async asyncData({ app, route, store }) {
+    const userId = store.state.userId;
+    const tweets = await app.$axios.$get(`/api/tweets/${userId}`);
+    const user = await app.$axios.$get(`/api/users/${userId}`);
     const currentPath = route.path.replace('/', '');
     let index = 0;
     switch (currentPath) {
@@ -37,6 +42,8 @@ export default {
         break;
     }
     return {
+      tweets,
+      user,
       nav: {
         index: index,
         position: ['tweet', 'reply', 'media', 'good'],
@@ -45,7 +52,6 @@ export default {
   },
   data() {
     return {
-      tweets: tweets,
       PostTweet: false,
     }
   },
@@ -53,15 +59,13 @@ export default {
     animation() {
       TweenMax.to('#obj', 0.5, { scale: 10, repeat: 3 });
     },
-    addTweet(text) {
-      const tweet = {
-        id: this.creatRandomId(),
-        userid: '@momoyama_mirai710',
-        name: '桃山みらい',
-        icon: 'momoyama',
-        tweet: text,
+    async postTweet(content) {
+      const userId = this.$store.state.userId;
+      const params = {
+        user_id: userId,
+        content: content
       }
-      tweets.unshift(tweet);
+      this.tweets = await this.$axios.$post('/api/tweets', params);
     },
     postclose() {
       this.PostTweet = false;

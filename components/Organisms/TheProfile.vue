@@ -1,45 +1,25 @@
 <template>
   <div class="profile">
     <div class="profile__header">
-      <div class="profile__img"><img :src="`/cover/${img}.jpg`"></div>
+      <div class="profile__img"><img :src="`/cover/`"></div>
       <button class="profile__button">フォローする</button>
     </div>
-    <div class="profile__name">{{ name }}</div>
-    <div class="profile__id">{{ id }}</div>
-    <div class="profile__description">{{ description }}</div>
+    <div class="profile__name">{{ user.user_name }}</div>
+    <div class="profile__id">{{ user.userId }}</div>
+    <div class="profile__description">{{ user.profile }}</div>
     <div class="profile__followContainer">
-      <div class="profile__follow"><span class="profile__follow--number">{{ follows }}</span>フォロー</div>
-      <div class="profile__follow"><span class="profile__follow--number">{{ followers }}</span>フォロワー</div>
+      <div class="profile__follow"><span class="profile__follow--number"></span>フォロー</div>
+      <div class="profile__follow"><span class="profile__follow--number"></span>フォロワー</div>
     </div>
   </div>
 </template>
 <script>
 export default {
   props: {
-    img: {
-      type: String,
-      default: '',
-    },
-    name: {
-      type: String,
-      default: '',
-    },
-    id: {
-      type: String,
-      default: '',
-    },
-    description: {
-      type: String,
-      default: ''
-    },
-    follows: {
-      type: String,
-      default: 0,
-    },
-    followers: {
-      type: String,
-      default: 0
-    },
+    user: {
+      type: Object,
+      default: () => {},
+    }
   }
 }
 </script>

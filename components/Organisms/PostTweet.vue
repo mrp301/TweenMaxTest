@@ -34,7 +34,7 @@ export default {
     },
     submit() {
       if (this.validate) {
-        this.$emit('addTweet', this.tweetText);
+        this.$emit('post-tweet', this.tweetText);
         this.tweetText = '';
         this.$emit('postclose');
       }
