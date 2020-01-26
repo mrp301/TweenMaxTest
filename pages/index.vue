@@ -1,6 +1,10 @@
 <template>
   <div>
-    <the-profile :user="user" />
+    <the-profile
+      :user="user"
+      :follows="follows"
+      :followers="followers"
+    />
     <the-main-area :nav="nav">
       <nuxt-child keep-alive :tweets="tweets" />
     </the-main-area>
@@ -24,6 +28,7 @@ export default {
     const userId = store.state.userId;
     const tweets = await app.$axios.$get(`/api/tweets/${userId}`);
     const user = await app.$axios.$get(`/api/users/${userId}`);
+    const { follows, followers } = await app.$axios.$get(`/api/follows/${userId}`);
     const currentPath = route.path.replace('/', '');
     let index = 0;
     switch (currentPath) {
@@ -44,6 +49,8 @@ export default {
     return {
       tweets,
       user,
+      follows,
+      followers,
       nav: {
         index: index,
         position: ['tweet', 'reply', 'media', 'good'],

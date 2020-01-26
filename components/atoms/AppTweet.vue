@@ -2,7 +2,7 @@
   <div :id="tweet.id" class="tweet">
     <div class="tweet__container">
       <div class="tweet__iconContainer">
-        <div v-if="false" class="tweet__icon"><img :src="`/cover/`"></div>
+        <div v-if="tweet.user.icon" class="tweet__icon"><img :src="`/images/icon/${tweet.user.icon}.png`"></div>
         <div v-else class="tweet__icon--default"></div>
       </div>
       <div class="tweet__body">

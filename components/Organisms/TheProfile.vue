@@ -1,15 +1,19 @@
 <template>
   <div class="profile">
     <div class="profile__header">
-      <div class="profile__img"><img :src="`/cover/`"></div>
+      <div class="profile__img"><img :src="`/images/icon/${user.icon}.png`"></div>
       <button class="profile__button">フォローする</button>
     </div>
     <div class="profile__name">{{ user.user_name }}</div>
     <div class="profile__id">{{ user.userId }}</div>
     <div class="profile__description">{{ user.profile }}</div>
     <div class="profile__followContainer">
-      <div class="profile__follow"><span class="profile__follow--number"></span>フォロー</div>
-      <div class="profile__follow"><span class="profile__follow--number"></span>フォロワー</div>
+      <div class="profile__follow">
+        <span class="profile__follow--number"></span>フォロー{{ follows.length }}
+      </div>
+      <div class="profile__follow">
+        <span class="profile__follow--number"></span>フォロワー{{ followers.length }}
+      </div>
     </div>
   </div>
 </template>
@@ -19,7 +23,15 @@ export default {
     user: {
       type: Object,
       default: () => {},
-    }
+    },
+    follows: {
+      type: Object,
+      default: () => {},
+    },
+    followers: {
+      type: Object,
+      default: () => {},
+    },
   }
 }
 </script>
