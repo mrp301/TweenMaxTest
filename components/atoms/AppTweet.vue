@@ -13,7 +13,7 @@
           <nuxt-link class="tweet__user--name" :to="{ name: `user_id`, params: { user_id: tweet.user.id }}">
             {{ tweet.user.user_name }}
           </nuxt-link>
-          <span class="tweet__user--userid">@{{ tweet.user.userId }} {{ $dayjs(tweet.created_at).format('YYYY年MM月DD日') }}</span>
+          <span class="tweet__user--userid">@{{ tweet.user.id }} {{ $dayjs(tweet.created_at).format('YYYY年MM月DD日') }}</span>
         </div>
         <div class="tweet__text">{{ tweet.content }}</div>
         <!-- <div class="tweet__mediaContainer">

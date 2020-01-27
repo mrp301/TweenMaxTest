@@ -2,7 +2,6 @@
   <div>
     <ul>
       <li v-for="follow in follows" :key="follow.id">
-        {{ follow.id }}
         <user-profile :user="follow" />
       </li>
     </ul>

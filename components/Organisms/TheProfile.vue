@@ -10,7 +10,7 @@
       >フォロー</app-button>
     </div>
     <div class="profile__name">{{ user.user_name }}</div>
-    <div class="profile__id">@{{ user.userId }}</div>
+    <div class="profile__id">@{{ user.id }}</div>
     <div class="profile__description">{{ user.profile }}</div>
     <div class="profile__followContainer">
       <div class="profile__follow">
