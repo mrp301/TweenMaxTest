@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import UserProfile from '~/components/molecules/UserProfile.vue'
+import UserProfile from '~/components/Molecules/UserProfile.vue'
 export default {
   transition: {
     name: 'fade',
