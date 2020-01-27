@@ -1,7 +1,13 @@
 <template>
   <header class="header">
-    <div class="header__name">{{ userName }}</div>
-    <div>メニュー</div>
+    <div >
+      <nuxt-link
+        class="header__name"
+        :to="{ name: 'user_id', params: { user_id: this.$store.state.userId }}"
+      >
+        home
+      </nuxt-link>
+    </div>
   </header>
 </template>
 <script>
@@ -25,6 +31,12 @@ export default {
 
   &__name {
     font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 </style>

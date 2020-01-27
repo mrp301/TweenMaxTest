@@ -79,4 +79,10 @@ export default {
           pathRewrite: { '^/api' : '/api/v1' }
         }
   },
+
+  // router: {
+  //   scrollBehavior: function (to, from, savedPosition) {
+  //     return { x: 0, y: 0 }
+  //   }
+  // },
 }

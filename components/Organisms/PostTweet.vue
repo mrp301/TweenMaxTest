@@ -60,6 +60,10 @@ export default {
     border-bottom: solid 1px $border_color;
   }
 
+  &__body {
+    height: 100%;
+  }
+
   &__prev {
     margin: 9px 0 0 8px;
     width: 12px;

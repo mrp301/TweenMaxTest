@@ -4,18 +4,23 @@
     ref="button"
     @click="clickBtton"
     class="c-button"
+    :class="`c-button--${type} is-${state}`"
   >
     <div ref="wave" class="wave" :class="{ 'is-animation': isAnimation }"></div>
-    {{ text }}
+    <slot/>
   </button>
 </template>
 <script>
 export default {
   props: {
-    text: {
+    type: {
+      type: String,
+      default: 'circle',
+    },
+    state: {
       type: String,
       default: '',
-    },
+    }
   },
   data() {
     return {
@@ -37,12 +42,9 @@ export default {
   display: inline-block;
   font-weight: bold;
   font-size: 12px;
-  background: #5677fc;
+  background: $main_color;
   color: #fff;
-  min-width: 156px;
-  height: 36px;
   text-align: center;
-  line-height: 36px;
   text-transform: uppercase;
   padding: 0 10px;
   border: 0;
@@ -54,6 +56,30 @@ export default {
 
   &:focus {
     outline: none;
+  }
+
+  &--circle {
+    padding: 5px 18px;
+    font-size: 14px;
+    color: $main_color;
+    background-color: transparent;
+    border: solid 1px $main_color;
+    border-radius: 52px;
+
+    &:hover {
+      background: rgba(#fff, .05);
+    }
+
+    &.is-active {
+      color: #fff;
+      background-color: $main_color;
+    }
+
+    &.is-danger {
+      border: solid 1px #ca2055;
+      color: #fff;
+      background-color: #ca2055;
+    }
   }
 
   .wave {

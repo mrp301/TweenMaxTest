@@ -1,18 +1,23 @@
 <template>
   <div class="profile">
     <div class="profile__header">
-      <div class="profile__img"><img :src="`/images/icon/${user.icon}.png`"></div>
-      <button class="profile__button">フォローする</button>
+      <div class="profile__img"><img :src="`/images/user-icon/${user.icon}.png`"></div>
+      <app-button
+        v-if="$store.state.userId === parseInt($route.params.user_id, 10)"
+      >プロフィールを編集</app-button>
+      <app-button
+        v-else
+      >フォロー</app-button>
     </div>
     <div class="profile__name">{{ user.user_name }}</div>
-    <div class="profile__id">{{ user.userId }}</div>
+    <div class="profile__id">@{{ user.userId }}</div>
     <div class="profile__description">{{ user.profile }}</div>
     <div class="profile__followContainer">
       <div class="profile__follow">
-        <span class="profile__follow--number"></span>フォロー{{ follows.length }}
+        <span class="profile__follow--number">{{ follows.length }}</span>フォロー中
       </div>
       <div class="profile__follow">
-        <span class="profile__follow--number"></span>フォロワー{{ followers.length }}
+        <span class="profile__follow--number">{{ followers.length }}</span>フォロワー
       </div>
     </div>
   </div>
@@ -25,12 +30,12 @@ export default {
       default: () => {},
     },
     follows: {
-      type: Object,
-      default: () => {},
+      type: Array,
+      default: () => [],
     },
     followers: {
-      type: Object,
-      default: () => {},
+      type: Array,
+      default: () => [],
     },
   }
 }
@@ -81,6 +86,7 @@ export default {
 
   &__name {
     margin-bottom: 2px;
+    padding-top: 6px;
     font-weight: bold;
   }
 
@@ -109,7 +115,7 @@ export default {
     }
 
     &--number {
-      margin-right: 2px;
+      margin-right: 6px;
       font-weight: bold;
       color: #fff;
     }

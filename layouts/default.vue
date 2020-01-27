@@ -1,16 +1,14 @@
 <template>
   <div>
-    <the-cover fileName="cover" />
+    <the-header />
     <nuxt />
   </div>
 </template>
 <script>
 import TheHeader from '~/components/Organisms/layouts/TheHeader';
-import TheCover from '~/components/Organisms/layouts/TheCover';
 export default {
   components: {
     TheHeader,
-    TheCover,
   },
 }
 </script>
@@ -21,12 +19,13 @@ html {
   font-size: 16px;
   word-spacing: 1px;
   box-sizing: border-box;
-  background: #969696;
+  background: #000;
 }
 
 body {
   color: #fff;
   margin: 0 auto;
+  max-width: 375px;
   background: $base_color;
 }
 

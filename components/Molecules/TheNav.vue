@@ -2,8 +2,8 @@
   <nav class="nav-container">
     <ul class="nav">
       <the-nav-item @fetchIndex="fetchIndex" v-model="width[0]" text="ツイート" :current="value" :index="0" id="tweet" />
-      <the-nav-item @fetchIndex="fetchIndex" v-model="width[1]" text="ツイートと返信" :current="value" :index="1" id="reply" />
-      <the-nav-item @fetchIndex="fetchIndex" v-model="width[2]" text="メディア" :current="value" :index="2" id="media" />
+      <the-nav-item @fetchIndex="fetchIndex" v-model="width[1]" text="フォロワー" :current="value" :index="1" id="reply" />
+      <the-nav-item @fetchIndex="fetchIndex" v-model="width[2]" text="フォロー中" :current="value" :index="2" id="media" />
       <the-nav-item @fetchIndex="fetchIndex" v-model="width[3]" text="いいね" :current="value" :index="3" id="good" />
     </ul>
     <div
@@ -92,6 +92,11 @@ export default {
     font-size: 14px;
     font-weight: bold;
     color: $gray_color;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(#fff, .05);
+    }
 
     &.is-active {
       color: #1ca1f2;

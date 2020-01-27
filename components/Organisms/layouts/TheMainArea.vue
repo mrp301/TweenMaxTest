@@ -42,9 +42,9 @@ export default {
     },
     pageChange(slug) {
       if (slug === 'tweet') {
-        this.$router.push({ name: `index` });
+        this.$router.push({ name: 'user_id', params: { user_id: this.$route.params.user_id }});
       } else {
-        this.$router.push({ name: `index-${slug}` });
+        this.$router.push({ name: `user_id-${slug}`, params: { user_id: this.$route.params.user_id }});
       }
     }
   },

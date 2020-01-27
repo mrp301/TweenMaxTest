@@ -1,6 +1,6 @@
 <template>
   <div class="cover">
-    <img class="cover__img" :style="{ 'filter': 'blur('+scrollY/30+'px)' }" :src="`/tweet/${fileName}.jpg`">
+    <img class="cover__img" :style="{ 'filter': 'blur('+scrollY/30+'px)' }" :src="`/tweet/${fileName}.png`">
   </div>
 </template>
 <script>

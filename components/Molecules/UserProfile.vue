@@ -1,24 +1,21 @@
 <template>
-  <div :id="tweet.id" class="tweet">
+  <div class="tweet">
     <div class="tweet__container">
       <div class="tweet__iconContainer">
-        <nuxt-link :to="{ name: `user_id`, params: { user_id: tweet.user.id }}">
-          <div :class="tweet.user.icon ? 'tweet__icon' : 'tweet__icon--default'">
-            <img :src="`/images/user-icon/${tweet.user.icon}.png`">
+        <nuxt-link :to="{ name: 'user_id', params: { user_id: user.id }}">
+          <div :class="user.icon ? 'tweet__icon' : 'tweet__icon--default'">
+            <img :src="`/images/user-icon/${user.icon}.png`">
           </div>
         </nuxt-link>
       </div>
       <div class="tweet__body">
         <div class="tweet__user">
-          <nuxt-link class="tweet__user--name" :to="{ name: `user_id`, params: { user_id: tweet.user.id }}">
-            {{ tweet.user.user_name }}
+          <nuxt-link class="tweet__user--name" :to="{ name: 'user_id', params: { user_id: user.id }}">
+            {{ user.user_name }}
           </nuxt-link>
-          <span class="tweet__user--userid">@{{ tweet.user.userId }} {{ $dayjs(tweet.created_at).format('YYYY年MM月DD日') }}</span>
+          <span class="tweet__user--userid">@{{ user.id }}</span>
         </div>
-        <div class="tweet__text">{{ tweet.content }}</div>
-        <!-- <div class="tweet__mediaContainer">
-          <div v-if="data.media" :ref="data.id" class="tweet__media"><img :src="`/tweet/${data.media}.jpg`"></div>
-        </div> -->
+        <div class="tweet__text">{{ user.profile }}</div>
       </div>
     </div>
   </div>
@@ -26,16 +23,11 @@
 <script>
 export default {
   props: {
-    tweet: {
+    user: {
       type: Object,
       default: () => {},
     },
   },
-  methods: {
-    mediaView(id) {
-      this.$refs[id].classList.add('tweet__media--isActive');
-    }
-  }
 }
 </script>
 <style lang='scss' scoped>
