@@ -26,7 +26,7 @@ export default {
   },
   async asyncData({ app, route, store }) {
     const userId = store.state.userId;
-    const tweets = await app.$axios.$get(`/api/tweets/${userId}`);
+    const tweets = await app.$axios.$get(`/api/users/${userId}/timeline`);
     const user = await app.$axios.$get(`/api/users/${userId}`);
     const { follows, followers } = await app.$axios.$get(`/api/follows/${userId}`);
     const currentPath = route.path.replace('/', '');
