@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import AppUserIcon from '~/components/atoms/appUserIcon.vue';
+import AppUserIcon from '~/components/atoms/AppUserIcon.vue';
 export default {
   components: {
      AppUserIcon,
