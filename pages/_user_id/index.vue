@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import AppTweet from '~/components/atoms/AppTweet.vue'
+import AppTweet from '~/components/Molecules/AppTweet.vue'
 export default {
   components: {
     AppTweet,

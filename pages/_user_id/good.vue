@@ -6,10 +6,14 @@
   </div>
 </template>
 <script>
+import AppUserCard from '~/components/Molecules/AppUserCard.vue';
 export default {
   transition: {
     name: 'fade',
     mode: 'out-in',
+  },
+  components: {
+    AppUserCard,
   },
 }
 </script>

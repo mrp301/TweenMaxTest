@@ -1,7 +1,10 @@
 <template>
   <div class="profile">
     <div class="profile__header">
-      <div class="profile__img"><img :src="`/images/user-icon/${user.icon}.png`"></div>
+      <app-user-icon
+        class="profile__userIcon"
+        :file-name="user.icon"
+      />
       <app-button
         v-if="$store.state.userId === parseInt($route.params.user_id, 10)"
       >プロフィールを編集</app-button>
@@ -23,7 +26,11 @@
   </div>
 </template>
 <script>
+import AppUserIcon from '~/components/atoms/AppUserIcon.vue';
 export default {
+  components: {
+    AppUserIcon,
+  },
   props: {
     user: {
       type: Object,
@@ -49,20 +56,13 @@ export default {
     text-align: right;
   }
 
-  &__img {
+  &__userIcon {
     position: absolute;
     top: -46px;
     left: 0;
-    overflow: hidden;
-    object-fit: cover;
-    border: solid 3px $base_color;
-    border-radius: 50%;
     width: 80px;
     height: 80px;
-
-    img {
-      width: 100%;
-    }
+    border: solid 3px $base_color;
   }
 
   &__button {
