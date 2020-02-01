@@ -11,6 +11,11 @@ export default {
     name: 'fade',
     mode: 'out-in',
   },
+  head() {
+    return {
+      title: 'メモ置き場',
+    };
+  },
 }
 </script>
 

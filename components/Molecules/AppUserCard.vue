@@ -1,6 +1,6 @@
 <template>
   <div class="userCard">
-    <nuxt-link :to="{ name: id, params: { user_id: id }}">
+    <nuxt-link :to="{ name: 'user_id', params: { user_id: id }}">
     <app-user-icon :fileName="iconFileName" class="userCard__userIcon" />
     </nuxt-link>
     <div class="userCard__content">

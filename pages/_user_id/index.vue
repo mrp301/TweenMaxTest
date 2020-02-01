@@ -23,6 +23,11 @@ export default {
       default: () => [],
     },
   },
+  head() {
+    return {
+      title: this.$store.state.userId,
+    };
+  },
 }
 </script>
 <style lang='scss' scoped>

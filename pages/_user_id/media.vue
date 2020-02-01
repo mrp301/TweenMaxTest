@@ -23,6 +23,11 @@ export default {
       default: () => [],
     },
   },
+  head() {
+    return {
+      title: 'フォロー中',
+    };
+  },
 }
 </script>
 <style lang='scss' scoped>

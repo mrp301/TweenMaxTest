@@ -34,12 +34,7 @@ export default {
   },
   async asyncData({ app, route, store }) {
     const userId = route.params.user_id;
-    let tweets;
-    if (userId === store.state.userId) {
-      tweets = await app.$axios.$get(`/api/users/${userId}/timeline`);
-    } else {
-      tweets = await app.$axios.$get(`/api/users/${userId}/my_tweets`);
-    }
+    const tweets = await app.$axios.$get(`/api/users/${userId}/my_tweets`);
     const user = await app.$axios.$get(`/api/users/${userId}`);
     const { follows, followers } = await app.$axios.$get(`/api/follows/${userId}`);
     const currentPath = route.path.replace('/', '');

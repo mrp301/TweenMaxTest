@@ -3,7 +3,7 @@
     <div >
       <nuxt-link
         class="header__name"
-        :to="{ name: 'user_id', params: { user_id: this.$store.state.userId }}"
+        :to="{ name: 'home'}"
       >
         home
       </nuxt-link>

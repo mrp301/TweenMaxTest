@@ -23,6 +23,11 @@ export default {
       default: () => [],
     },
   },
+  head() {
+    return {
+      title: 'フォロワー',
+    };
+  },
 }
 </script>
 <style lang='scss' scoped>
