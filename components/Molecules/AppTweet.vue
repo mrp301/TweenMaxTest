@@ -6,7 +6,7 @@
       </nuxt-link>
       <span class="tweet__id">@{{ tweet.user.id }}</span>
     </template>
-    <div class="tweet__text">{{ tweet.content }}</div>
+    <p>{{ tweet.content }}</p>
   </app-user-card>
 </template>
 <script>

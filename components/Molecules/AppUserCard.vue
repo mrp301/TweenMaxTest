@@ -8,7 +8,7 @@
         <slot name="header" />
       </div>
       <div class="userCard__body">
-          <slot />
+        <slot />
       </div>
       <div class="uerCard__footer">
           <slot name="footer" />
@@ -60,6 +60,14 @@ export default {
 
   &__header {
     margin-bottom: 4px;
+  }
+
+  &__body {
+    margin-bottom: 4px;
+
+    p {
+      white-space: pre-wrap;
+    }
   }
 }
 </style>
