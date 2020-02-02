@@ -72,7 +72,7 @@ export default {
   position: absolute;
   bottom: 0;
   height: 2px;
-  background: #1ca1f2;
+  background: $main_color;
   transition: all 0.2s ease-in;
 }
 
@@ -99,7 +99,7 @@ export default {
     }
 
     &.is-active {
-      color: #1ca1f2;
+      color: $main_color;
     }
   }
 }

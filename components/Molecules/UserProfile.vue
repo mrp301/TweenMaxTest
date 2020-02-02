@@ -26,8 +26,9 @@ export default {
 <style lang="scss" scoped>
 .userProfile {
   &__name {
-    color: #fff;
+    color: $text_color;
     text-decoration: none;
+    font-weight: bold;
     
     &:hover {
       text-decoration: underline;

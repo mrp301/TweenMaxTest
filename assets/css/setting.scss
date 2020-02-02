@@ -1,14 +1,19 @@
-ul,
-li {
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  list-style: none;
-}
-
+// ダークモード
+$text_color: #fff;
+$text_wight: 400;
 $base_color: #15222b;
 $border_color: #38444d;
 $gray_color: #8899a6;
 $main_color: #1ca1f2;
+$secondary_color: #1ca1f2;
+$header_color: $base_color;
+
+// 女児モード
+$text_color: #3e3e3e;
+$text_wight: 500;
+$base_color: #f3bccd;
+$border_color: #a5a5a5;
+$gray_color: #848484;
+$main_color: #ea5181;
+$secondary_color: #ee87aa;
+$header_color: $main_color;

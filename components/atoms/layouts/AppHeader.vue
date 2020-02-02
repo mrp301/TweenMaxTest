@@ -1,13 +1,6 @@
 <template>
   <header class="header">
-    <div >
-      <nuxt-link
-        class="header__name"
-        :to="{ name: 'home'}"
-      >
-        home
-      </nuxt-link>
-    </div>
+    <slot />
   </header>
 </template>
 <script>
@@ -26,8 +19,8 @@ export default {
   justify-content: space-between;
   border-bottom: solid 1px $border_color;
   width: 100%;
-  padding: 10px;
-  background: $base_color;
+  padding: 8px 10px;
+  background: $header_color;
 
   &__name {
     font-weight: bold;

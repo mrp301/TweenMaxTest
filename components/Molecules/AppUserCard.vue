@@ -37,7 +37,6 @@ export default {
 <style lang="scss" scoped>
 .userCard {
   font-size: 14px;
-  color: #fff;
   display: flex;
   padding: 10px 18px 10px 12px;
   border-bottom: solid 1px $border_color;
@@ -63,11 +62,14 @@ export default {
   }
 
   &__body {
-    margin-bottom: 4px;
 
     p {
       white-space: pre-wrap;
     }
+  }
+
+  &__footer {
+    margin-top: 4px;
   }
 }
 </style>

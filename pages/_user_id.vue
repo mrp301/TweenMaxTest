@@ -90,11 +90,6 @@ export default {
 </script>
 
 <style lang='scss'>
-li {
-  text-align: left;
-  padding-left: 5px;
-}
-
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -139,7 +134,7 @@ li {
   text-align: center;
   font-size: 30px;
   color: #fff;
-  background: #1ca1f2;
+  background: $main_color;
   box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 10px, rgba(136, 153, 166, 0.25) 0px 1px 3px 1px;
 
   &:focus {

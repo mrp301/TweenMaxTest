@@ -5,6 +5,7 @@
     @click="clickBtton"
     class="c-button"
     :class="`c-button--${type} is-${state}`"
+    :disabled="disabled"
   >
     <div ref="wave" class="wave" :class="{ 'is-animation': isAnimation }"></div>
     <slot/>
@@ -20,6 +21,10 @@ export default {
     state: {
       type: String,
       default: '',
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     }
   },
   data() {
@@ -33,6 +38,7 @@ export default {
       //this.clickPositionX = event.layerX;
       await this.$delay(300)
       this.isAnimation = false;
+      this.$emit('btn-click');
     },
   },
 }
@@ -52,7 +58,6 @@ export default {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
 
   &:focus {
     outline: none;
@@ -79,6 +84,16 @@ export default {
       border: solid 1px #ca2055;
       color: #fff;
       background-color: #ca2055;
+    }
+
+    &.is-disabled {
+      color: #fff;
+      background: $main_color;
+      opacity: 0.5;
+
+      &:hover {
+        cursor: unset;
+      }
     }
   }
 

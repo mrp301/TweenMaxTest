@@ -5,6 +5,7 @@
         {{ tweet.user.user_name }}
       </nuxt-link>
       <span class="tweet__id">@{{ tweet.user.id }}</span>
+      <span class="tweet__date">{{ $dayjs(tweet.created_at).format('YYYY年MM月DD日') }}</span>
     </template>
     <p>{{ tweet.content }}</p>
   </app-user-card>
@@ -31,16 +32,18 @@ export default {
 <style lang='scss' scoped>
 .tweet {
   &__name {
-    color: #fff;
+    color: $text_color;
     text-decoration: none;
+    font-weight: bold;
     
     &:hover {
       text-decoration: underline;
     }
   }
   
-  &__id {
-    color: #8899a6;
+  &__id,
+  &__date {
+    color: $gray_color;
   }
 }
 </style>

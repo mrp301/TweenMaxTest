@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="back">
     <ul>
       <li v-for="tweet in tweets" :key="tweet.id">
         <app-tweet :tweet="tweet" />

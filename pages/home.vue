@@ -10,6 +10,7 @@
 <script>
 import AppTweet from '~/components/Molecules/AppTweet.vue';
 export default {
+  layout: 'home',
   components: { AppTweet },
   async asyncData({ store, app }) {
     const userId = store.state.userId;

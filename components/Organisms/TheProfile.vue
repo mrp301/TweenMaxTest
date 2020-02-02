@@ -50,6 +50,7 @@ export default {
 <style lang='scss' scoped>
 .profile {
   padding: 10px;
+  background: $base_color;
 
   &__header {
     position: relative;
@@ -62,26 +63,7 @@ export default {
     left: 0;
     width: 80px;
     height: 80px;
-    border: solid 3px $base_color;
-  }
-
-  &__button {
-    padding: 3px 18px;
-    color: #1ca1f2;
-    background: rgba(0, 0, 0, 0);
-    font-size: 16px;
-    text-align: center;
-    border: solid 1px #1ca1f2;
-    border-radius: 52px;
-
-    &:focus {
-      outline: none;
-    }
-
-    &.is-active {
-      color: #fff;
-      background: #1ca1f2;
-    }
+    border: solid 2px $base_color;
   }
 
   &__name {
@@ -117,7 +99,7 @@ export default {
     &--number {
       margin-right: 6px;
       font-weight: bold;
-      color: #fff;
+      color: $text-color;
     }
   }
 }

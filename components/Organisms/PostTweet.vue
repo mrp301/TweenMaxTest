@@ -2,7 +2,7 @@
   <div ref="post" v-show="isActive" class="post" :class="{ 'is-slidein': isActive }">
     <div class="post__head">
       <div class="post__prev" @click="close()"></div>
-      <button @click="submit()" class="post__button" :class="{ 'post__button--disable': !validate }">ツイート</button>
+      <app-button @btn-click="submit" :state="!validate ? 'disabled' : 'active'" :disabled="!validate" >ツイート</app-button>
     </div>
     <div class="post__body">
       <textarea v-model="tweetText" placeholder="いまどうしてる？"></textarea>
@@ -33,6 +33,7 @@ export default {
       this.$emit('postclose');
     },
     submit() {
+      console.log("あああ");
       if (this.validate) {
         this.$emit('post-tweet', this.tweetText);
         this.tweetText = '';
@@ -69,28 +70,8 @@ export default {
     width: 12px;
     height: 12px;
     transform: rotate(-135deg);
-    border-top: solid 2px #1ca1f2;
-    border-right: solid 2px #1ca1f2;
-  }
-
-  &__button {
-    padding: 3px 18px;
-    color: #1ca1f2;
-    font-size: 16px;
-    text-align: center;
-    border: solid 1px #1ca1f2;
-    border-radius: 52px;
-    color: #fff;
-    background: #1ca1f2;
-
-    &--disable {
-      color: $gray_color;
-      background: rgba(0, 0, 0, 0);
-    }
-
-    &:focus {
-      outline: none;
-    }
+    border-top: solid 2px $main_color;
+    border-right: solid 2px $main_color;
   }
 
   &.is-slidein {
@@ -118,7 +99,7 @@ export default {
   }
 
   textarea {
-    color: #fff;
+    color: $text_color;
     padding: 3px 10px;
     font-size: 16px;
     width: 100%;
