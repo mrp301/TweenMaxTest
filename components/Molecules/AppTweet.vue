@@ -5,7 +5,7 @@
         {{ tweet.user.user_name }}
       </nuxt-link>
       <span class="tweet__id">@{{ tweet.user.id }}</span>
-      <span class="tweet__date">{{ $dayjs(tweet.created_at).format('YYYY年MM月DD日') }}</span>
+      <!-- <span class="tweet__date">{{ $dayjs(tweet.created_at).format('YYYY年MM月DD日') }}</span> -->
     </template>
     <p>{{ tweet.content }}</p>
   </app-user-card>

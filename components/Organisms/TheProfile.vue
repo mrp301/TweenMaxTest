@@ -6,7 +6,7 @@
         :file-name="user.icon"
       />
       <app-button
-        v-if="$store.state.userId === parseInt($route.params.user_id, 10)"
+        v-if="false"
       >プロフィールを編集</app-button>
       <app-button
         v-else
