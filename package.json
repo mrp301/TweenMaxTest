@@ -36,7 +36,7 @@
     "@storybook/vue": "^5.3.10",
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nuxt-sass-resources-loader": "^2.0.5",
     "sass-loader": "^8.0.2"
   }
